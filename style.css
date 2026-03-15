@@ -11,7 +11,91 @@ body {
     font-family: 'Inter', sans-serif;
     background-color: #1a1a1a;
     color: #ffffff;
+
+
 }
+
+
+
+
+
+
+
+/* ================= 16. MOBILE RESPONSIVENESS ================= */
+
+/* This rule only applies to screens smaller than 768px (Phones and small tablets) */
+@media (max-width: 768px) {
+    
+    /* 1. Stack the layout vertically */
+    body {
+        flex-direction: column;
+    }
+
+    /* 2. Fix the Sidebar so it stays at the top on mobile */
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+        padding: 30px 20px;
+        text-align: center;
+    }
+
+    .main-content {
+        margin-left: 0; /* Removes the gap left by the desktop sidebar */
+        width: 100%;
+        padding: 0;
+    }
+
+    /* 3. Force all Grids into a single column */
+    .services-grid, 
+    .portfolio-grid, 
+    .testimonials-grid {
+        grid-template-columns: 1fr; /* 1 fraction = 1 single column */
+        gap: 20px;
+    }
+
+    /* 4. Fix the Contact Section so the form drops below the info */
+    .contact-grid {
+        flex-direction: column;
+    }
+
+    .contact-info-cards {
+        width: 100%;
+    }
+
+    /* 5. Shrink huge text and paddings for small screens */
+    .page-section {
+        padding: 60px 20px;
+    }
+
+    h1 { font-size: 2.5rem; }
+    h2.section-title { font-size: 2rem; }
+    
+    /* Make the navigation links display in a row instead of a column */
+    .nav-menu {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+        margin-top: 20px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* ================= 2. MACRO LAYOUT ================= */
 .sidebar {
