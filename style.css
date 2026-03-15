@@ -20,83 +20,6 @@ body {
 
 
 
-
-/* ================= 16. MOBILE RESPONSIVENESS ================= */
-
-/* This rule only applies to screens smaller than 768px (Phones and small tablets) */
-@media (max-width: 768px) {
-    
-    /* 1. Stack the layout vertically */
-    body {
-        flex-direction: column;
-    }
-
-    /* 2. Fix the Sidebar so it stays at the top on mobile */
-    .sidebar {
-        width: 100%;
-        height: auto;
-        position: relative;
-        padding: 30px 20px;
-        text-align: center;
-    }
-
-    .main-content {
-        margin-left: 0; /* Removes the gap left by the desktop sidebar */
-        width: 100%;
-        padding: 0;
-    }
-
-    /* 3. Force all Grids into a single column */
-    .services-grid, 
-    .portfolio-grid, 
-    .testimonials-grid {
-        grid-template-columns: 1fr; /* 1 fraction = 1 single column */
-        gap: 20px;
-    }
-
-    /* 4. Fix the Contact Section so the form drops below the info */
-    .contact-grid {
-        flex-direction: column;
-    }
-
-    .contact-info-cards {
-        width: 100%;
-    }
-
-    /* 5. Shrink huge text and paddings for small screens */
-    .page-section {
-        padding: 60px 20px;
-    }
-
-    h1 { font-size: 2.5rem; }
-    h2.section-title { font-size: 2rem; }
-    
-    /* Make the navigation links display in a row instead of a column */
-    .nav-menu {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 15px;
-        margin-top: 20px;
-    }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* ================= 2. MACRO LAYOUT ================= */
 .sidebar {
     position: fixed;
@@ -1161,4 +1084,111 @@ body.light-mode .contact-form input:focus,
 body.light-mode .contact-form textarea:focus {
     border-color: #aaaaaa;
     background-color: #ffffff;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* ================= 16. MOBILE RESPONSIVENESS ================= */
+/* THIS MUST ALWAYS BE AT THE VERY BOTTOM OF YOUR CSS FILE */
+
+@media (max-width: 768px) {
+    
+    /* 1. Base Layout Resets */
+    body {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+        margin: 0;
+        padding: 30px 20px;
+        border-radius: 0;
+        border-right: none;
+        border-bottom: 1px solid #2a2a2a;
+        text-align: center;
+    }
+
+    .main-content {
+        margin-left: 0;
+        width: 100%;
+        padding: 0 20px; /* Gives breathing room so text doesn't touch the screen edges */
+    }
+
+    /* 2. Stack ALL Flexbox Sections Vertically */
+    .hero, 
+    .about-grid, 
+    .resume-grid, 
+    .portfolio-container, 
+    .services-intro, 
+    .contact-grid {
+        flex-direction: column;
+        gap: 40px;
+        text-align: center;
+    }
+
+    /* 3. Hero Section Specifics */
+    .hero-text, .hero-image {
+        width: 100%;
+        justify-content: center;
+    }
+    .hero-buttons {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    /* 4. About & Resume Specifics */
+    .profile-card, .resume-left, .portfolio-sidebar, .contact-info-cards {
+        width: 100%; /* Prevents sidebars from shrinking on mobile */
+    }
+    
+    .stats-grid {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    .resume-left, .resume-right, .contact-info-cards {
+        text-align: left; /* Keeps timelines and contact info readable */
+    }
+
+    /* 5. Force all Grids into a Single Column */
+    .services-grid, 
+    .portfolio-grid, 
+    .testimonials-grid,
+    .skills-grid {
+        grid-template-columns: 1fr; 
+        gap: 20px;
+    }
+
+    /* 6. Typography Adjustments for Small Screens */
+    .page-section { padding: 60px 0; }
+    .hero-text h1 { font-size: 2.5rem; }
+    h2.section-title { font-size: 2rem; justify-content: center; }
+    .services-intro-left h2 { font-size: 2.2rem; text-align: center; }
+
+    /* 7. Nav Menu & Social Links Fix */
+    .nav-menu ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        margin-bottom: 20px;
+    }
+    .nav-menu a {
+        padding: 10px 15px;
+        margin-bottom: 0;
+    }
+    .social-links {
+        justify-content: center;
+        margin-top: 10px;
+    }
 }
